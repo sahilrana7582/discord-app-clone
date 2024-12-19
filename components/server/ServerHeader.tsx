@@ -33,13 +33,14 @@ const ServerHeader = ({ server, role }: ServerHeaderProp) => {
           <ChevronDown className="h-5 w-5 ml-auto" />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56 text-xs font-medium text-black dark:text-neutral-400 space-y-[2px]">
+      <DropdownMenuContent className="w-56 px-2 text-xs font-medium text-black dark:text-neutral-400 space-y-[2px]">
         {isModerator && (
           <DropdownMenuItem className="text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 px-3 py-2 text-sm cursor-pointer">
             Invite Code
             <UserPlus className="h-4 w-4 ml-auto" />
           </DropdownMenuItem>
         )}
+        <DropdownMenuSeparator />
         {isAdmin && (
           <DropdownMenuItem className="py-2 px-3 text-sm cursor-pointer">
             Server Settings <Settings className="w-4 h-4 ml-auto" />
