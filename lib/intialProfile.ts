@@ -1,12 +1,12 @@
-import { db } from '@/lib/db';
-import { RedirectToSignIn, UserButton } from '@clerk/nextjs';
 import { currentUser } from '@clerk/nextjs/server';
-import { redirect } from 'next/navigation';
+import { db } from '@/lib/db';
+import { RedirectToSignIn } from '@clerk/nextjs';
 
-export default async function intialProfile() {
+export const intialProfile = async () => {
   const user = await currentUser();
   if (!user) {
-    return RedirectToSignIn;
+    await RedirectToSignIn;
+    return;
   }
 
   const profile = await db.profile.findUnique({
@@ -27,5 +27,6 @@ export default async function intialProfile() {
       email: user.emailAddresses[0].emailAddress,
     },
   });
+
   return newProfile;
-}
+};

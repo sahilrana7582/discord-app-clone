@@ -23,6 +23,7 @@ const NavigationBar = async () => {
         },
       },
     },
+    orderBy: {},
   });
   return (
     <div className="space-y-2 flex flex-col bg-[#e3e5e8] h-full items-center text-primary w-full dark:bg-[#1e1f22] py-3 border-0">

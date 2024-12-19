@@ -5,6 +5,7 @@ import { ClerkProvider } from '@clerk/nextjs';
 import { ThemeProvider } from 'next-themes';
 import ModalProvider from '@/components/providers/ModalProvider';
 import { Toaster } from '@/components/ui/sonner';
+import { cn } from '@/lib/utils';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={cn('bg-white dark:bg-[#313338]', inter.className)}>
         <ClerkProvider>
           <ThemeProvider
             attribute="class"

@@ -1,5 +1,5 @@
 import { db } from '@/lib/db';
-import intialProfile from '@/lib/intialProfile';
+import { intialProfile } from '@/lib/intialProfile';
 import { currentUser } from '@clerk/nextjs/server';
 import { redirect } from 'next/navigation';
 

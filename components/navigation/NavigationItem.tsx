@@ -13,9 +13,15 @@ interface NavigationItemProp {
 const NavigationItem = ({ id, imageUrl, name }: NavigationItemProp) => {
   const param = useParams();
   const router = useRouter();
+  const handleRedirect = () => {
+    router.push(`/servers/${id}`);
+  };
   return (
     <ActionToolKit side="right" align="center" label={name}>
-      <button className="group relative flex items-center">
+      <button
+        onClick={handleRedirect}
+        className="group relative flex items-center"
+      >
         <div
           className={cn(
             'absolute left-0 bg-primary rounded-r-full transition-all w-[4px]',

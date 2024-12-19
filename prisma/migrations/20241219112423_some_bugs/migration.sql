@@ -1,0 +1,6 @@
+-- AlterTable
+ALTER TABLE "Server" ADD COLUMN     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ADD COLUMN     "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP;
+
+-- CreateIndex
+CREATE INDEX "Server_adminId_idx" ON "Server"("adminId");

@@ -10,7 +10,6 @@ generator client {
 datasource db {
   provider          = "postgresql"
   url               = env("DATABASE_URL")
-  directUrl         = env("DIRECT_URL")
 }
 
 
@@ -42,6 +41,11 @@ model Server{
   adminProfile Profile @relation(fields: [adminId], references: [id], onDelete: Cascade)
   channels Channel[]
   members Member[]
+
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt @default(now())
+  @@index([adminId])
 }
 
 enum MemberRole {
