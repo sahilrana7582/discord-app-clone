@@ -8,7 +8,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from '../ui/dialog';
-import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import {
@@ -26,6 +25,10 @@ import { Loader2 } from 'lucide-react';
 import FileUpload from '../extras/FileUpload';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
+
+import { useForm } from 'react-hook-form';
+
+import axios from 'axios';
 
 const formSchema = z.object({
   name: z.string().min(4, {
@@ -49,11 +52,18 @@ const CreateServerModal = () => {
 
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     try {
-        
+      const resp = await axios.post('/api/servers', data);
 
+      router.refresh();
+      handleClose();
     } catch (e: any) {
       toast.error(e.message);
     }
+  };
+
+  const handleClose = () => {
+    onClose();
+    form.reset();
   };
 
   const isModalOpen = isOpen && type === 'createServer';
