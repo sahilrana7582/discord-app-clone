@@ -18,7 +18,7 @@ const ModeToggleTheme = () => {
       <DropdownMenuTrigger asChild>
         <Button
           variant="outline"
-          className="bg-transparent border-0"
+          className="bg-transparent border-0 bg-slate-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 transition w-10 h-10"
           size="icon"
         >
           <Sun className="scale-100 h-[1.2rem] w-[1.2rem] rotate-0 transition-all dark:-rotate-90 dark:scale-0" />
@@ -31,7 +31,7 @@ const ModeToggleTheme = () => {
           Light
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme('dark')}>
-          dark
+          Dark
         </DropdownMenuItem>{' '}
         <DropdownMenuItem onClick={() => setTheme('system')}>
           System

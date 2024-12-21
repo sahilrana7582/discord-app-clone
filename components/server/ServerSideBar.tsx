@@ -88,6 +88,50 @@ const ServerSideBar = async ({ serverId }: { serverId: string }) => {
             </div>
           </div>
         )}
+        {!!audioChannel?.length && (
+          <div className="mb-2 ">
+            <ServerSection
+              label="Audio Channels"
+              channelType={ChannelType.TEXT}
+              sectionType="channel"
+              role={role}
+            />
+            <div className="space-y-[2px]">
+              {audioChannel.map((channel) => (
+                <ServerChannel
+                  key={channel.id}
+                  name={channel.name}
+                  type={channel.type}
+                  channel={channel}
+                  server={server}
+                  role={role}
+                />
+              ))}
+            </div>
+          </div>
+        )}{' '}
+        {!!videoChannel?.length && (
+          <div className="mb-2 ">
+            <ServerSection
+              label="Video Channels"
+              channelType={ChannelType.TEXT}
+              sectionType="channel"
+              role={role}
+            />
+            <div className="space-y-[2px]">
+              {videoChannel.map((channel) => (
+                <ServerChannel
+                  key={channel.id}
+                  name={channel.name}
+                  type={channel.type}
+                  channel={channel}
+                  server={server}
+                  role={role}
+                />
+              ))}
+            </div>
+          </div>
+        )}
       </ScrollArea>
     </div>
   );

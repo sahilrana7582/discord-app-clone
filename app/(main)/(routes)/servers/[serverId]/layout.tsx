@@ -6,7 +6,7 @@ const ServerLayout = ({
   params,
 }: {
   children: React.ReactNode;
-  params: string;
+  params: { serverId: string };
 }) => {
   const { serverId } = params;
   return (

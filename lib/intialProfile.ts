@@ -5,7 +5,7 @@ import { RedirectToSignIn } from '@clerk/nextjs';
 export const intialProfile = async () => {
   const user = await currentUser();
   if (!user) {
-    await RedirectToSignIn;
+    RedirectToSignIn;
     return;
   }
 

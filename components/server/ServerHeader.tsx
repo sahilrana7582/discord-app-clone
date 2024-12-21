@@ -17,12 +17,14 @@ import {
   UserPlus,
   Users,
 } from 'lucide-react';
+import { useModal } from '@/hooks/useModal';
 
 interface ServerHeaderProp {
   server: Server;
   role: string;
 }
 const ServerHeader = ({ server, role }: ServerHeaderProp) => {
+  const { onOpen } = useModal();
   const isAdmin = role === MemberRole.ADMIN;
   const isModerator = isAdmin || role === MemberRole.MODERATOR;
   return (
@@ -55,7 +57,10 @@ const ServerHeader = ({ server, role }: ServerHeaderProp) => {
         )}
 
         {isModerator && (
-          <DropdownMenuItem className="px-3 py-2 cursor-pointer text-sm">
+          <DropdownMenuItem
+            onClick={() => onOpen('createChannel')}
+            className="px-3 py-2 cursor-pointer text-sm"
+          >
             Create Channel
             <PlusCircle className="w-4 h-4 ml-auto" />
           </DropdownMenuItem>
