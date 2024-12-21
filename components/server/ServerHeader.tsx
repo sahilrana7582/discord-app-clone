@@ -18,9 +18,10 @@ import {
   Users,
 } from 'lucide-react';
 import { useModal } from '@/hooks/useModal';
+import { ServerWithMemberWithTypes } from '@/types';
 
 interface ServerHeaderProp {
-  server: Server;
+  server: ServerWithMemberWithTypes;
   role: string;
 }
 const ServerHeader = ({ server, role }: ServerHeaderProp) => {
@@ -51,8 +52,11 @@ const ServerHeader = ({ server, role }: ServerHeaderProp) => {
         )}
 
         {isModerator && (
-          <DropdownMenuItem className="px-3 py-2 cursor-pointer text-sm">
-            Manage Users
+          <DropdownMenuItem
+            onClick={() => onOpen('manageMember', { server })}
+            className="px-3 py-2 cursor-pointer text-sm"
+          >
+            Manage Members
             <Users className="w-4 h-4 ml-auto" />
           </DropdownMenuItem>
         )}

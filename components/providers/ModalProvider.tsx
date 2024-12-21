@@ -5,6 +5,7 @@ import { DeleteChannel } from '../modals/DeleteChannel';
 import EditChannel from '../modals/EditChannel';
 import { InviteModal } from '../modals/InviteCode';
 import { LeaveServer } from '../modals/LeaveServer';
+import { ManageMember } from '../modals/ManageMember';
 
 const ModalProvider = () => {
   return (
@@ -15,6 +16,7 @@ const ModalProvider = () => {
       <DeleteChannel />
       <InviteModal />
       <LeaveServer />
+      <ManageMember />
     </>
   );
 };
