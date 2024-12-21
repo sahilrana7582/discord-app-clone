@@ -36,12 +36,13 @@ const ServerHeader = ({ server, role }: ServerHeaderProp) => {
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56 px-2 text-xs font-medium text-black dark:text-neutral-400 space-y-[2px]">
-        {isModerator && (
-          <DropdownMenuItem className="text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 px-3 py-2 text-sm cursor-pointer">
-            Invite Code
-            <UserPlus className="h-4 w-4 ml-auto" />
-          </DropdownMenuItem>
-        )}
+        <DropdownMenuItem
+          onClick={() => onOpen('inviteModal', { server })}
+          className="text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 px-3 py-2 text-sm cursor-pointer"
+        >
+          Invite Code
+          <UserPlus className="h-4 w-4 ml-auto" />
+        </DropdownMenuItem>
         <DropdownMenuSeparator />
         {isAdmin && (
           <DropdownMenuItem className="py-2 px-3 text-sm cursor-pointer">
@@ -53,16 +54,6 @@ const ServerHeader = ({ server, role }: ServerHeaderProp) => {
           <DropdownMenuItem className="px-3 py-2 cursor-pointer text-sm">
             Manage Users
             <Users className="w-4 h-4 ml-auto" />
-          </DropdownMenuItem>
-        )}
-
-        {isModerator && (
-          <DropdownMenuItem
-            onClick={() => onOpen('createChannel')}
-            className="px-3 py-2 cursor-pointer text-sm"
-          >
-            Create Channel
-            <PlusCircle className="w-4 h-4 ml-auto" />
           </DropdownMenuItem>
         )}
 
@@ -80,8 +71,11 @@ const ServerHeader = ({ server, role }: ServerHeaderProp) => {
           </DropdownMenuItem>
         )}
         {!isAdmin && (
-          <DropdownMenuItem className="text-rose-600  px-3 py-2 text-sm cursor-pointer">
-            Delete Server
+          <DropdownMenuItem
+            onClick={() => onOpen('leaveServer', { server })}
+            className="text-rose-600  px-3 py-2 text-sm cursor-pointer"
+          >
+            Leave Server
             <LogOut className="h-5 w-5 ml-auto" />
           </DropdownMenuItem>
         )}

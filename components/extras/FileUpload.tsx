@@ -18,7 +18,7 @@ const FileUpload = ({ endPoint, value, onChange }: FileUploadProp) => {
           alt="Upload"
           width={250}
           height={550}
-          className="rounded-full"
+          className="rounded-full aspect-square"
         />
       </div>
     );
